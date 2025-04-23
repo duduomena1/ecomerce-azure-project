@@ -1,7 +1,14 @@
-CREATE TABLE Produtos (
+CREATE TABLE Products (
     id INT IDENTITY(1,1) PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL,
-    descricao NVARCHAR(MAX),
-    preco DECIMAL(18,2),
-    imagem_url NVARCHAR(2083),
+    name VARCHAR(255) NOT NULL,
+    description NVARCHAR(MAX),
+    price DECIMAL(18,2),
+    image_url NVARCHAR(2083),
+);
+
+CREATE TABLE Users (
+    id INT IDENTITY(1,1) PRIMARY KEY ,
+    name NVARCHAR(255) NOT NULL,
+    mail NVARCHAR(255) NOT NULL UNIQUE,
+    phone NVARCHAR(20),
 );
