@@ -19,7 +19,7 @@ Before running this project, ensure you have:
 
 Other prerequisites:
 
-- Experience with a programming language like **Python**, **C#**, or **JavaScript**.
+- Experience with a programming language like **Python** or **JavaScript**.
 - An active **Microsoft Azure** account.
 
 ## 🛠️ Skills and Sub-skills Covered
@@ -28,11 +28,6 @@ Other prerequisites:
   - App Services
   - Azure CLI and Portal
   - Data Storage
-
-- **Containers and Orchestration**
-  - Azure Container Apps
-  - Azure Kubernetes Service (AKS)
-  - Deploying containerized applications
 
 - **Monitoring and Performance**
   - Application Insights
@@ -46,9 +41,13 @@ Other prerequisites:
 
 ## 🚀 Features
 
-- **Product Registration**: Name, price, description, and image.
-- **Image Upload**: Secure storage in Azure Blob Storage.
+- **Welcome Page**: A user-friendly introduction to the application.
+- **Product Registration**: Add product details such as name, price, description, and image.
+- **Image Upload**: Securely store product images in Azure Blob Storage.
 - **Product Listing**: Display registered products with images and detailed information.
+- **User Registration**: Manage user accounts for the application.
+- **Order Management**: Handle customer orders efficiently.
+- **User-Friendly Navigation**: Easily switch between pages like product registration, user registration, and order management.
 
 ## 🎯 Objectives and Expected Outcomes
 
@@ -67,13 +66,16 @@ ecomerce-azure-project/
 ├── .env                   # Environment variables
 ├── requirements.txt       # Project dependencies
 ├── .gitignore             # Ignored files for Git
-└── README.md              # Project documentation
+├── README.md              # Project documentation
+├── welcome_page.py        # Welcome page code
+├── register.py            # Product registration page
+├── main_page.py           # Main page code
+└── order_page.py          # Order page code
 
 ```
 
 ## To Do List
 
-- [ ] Create client page
-- [ ] Create product page
-- [ ] Create order page
-- [ ] Create Docker files
+- [X ] Create client page
+- [X ] Create Docker files
+- [ ] Build and deploy the application
