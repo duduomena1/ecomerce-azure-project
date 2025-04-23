@@ -16,11 +16,11 @@ sqlDatabase = os.getenv('SQL_DATABASE')
 sqlUsername = os.getenv('SQL_USER')
 sqlPassword = os.getenv('SQL_PASSWORD')
 
-st.title('Cadastro de Produtos')
-product_name = st.text_input('Nome do Produto')
-product_price = st.number_input('Preço do Produto', min_value=0.0, format="%.2f")
-product_description = st.text_area('Descrição do Produto')
-product_image = st.file_uploader('Imagem do Produto', type=['jpg','png', 'jpeg'])
+st.title('Product registration')
+product_name = st.text_input('Name of the Product')
+product_price = st.number_input('Price', min_value=0.0, format="%.2f")
+product_description = st.text_area('Description')
+product_image = st.file_uploader('Image', type=['jpg','png', 'jpeg'])
 
 #save image on Blob
 def upload_blob(file):
@@ -43,7 +43,7 @@ def insert_product(product_name, product_price, product_description, product_ima
         conn.close()
         return True
     except Exception as e:
-        st.error(f"Erro ao inserir produto: {e}")
+        st.error(f"error registering product : {e}")
         return False
 
 def list_products():
@@ -55,7 +55,7 @@ def list_products():
         conn.close()
         return rows
     except Exception as e:
-        st.error(f"Erro ao listar produtos: {e}")
+        st.error(f"Error listing product: {e}")
         return []
 def list_products_screen():
     products = list_products()
@@ -65,24 +65,24 @@ def list_products_screen():
         for i, products in enumerate(products):
             col = cols[i % cards_por_linha]
             with col:
-                st.markdown(f"**Nome:** {products[2]}")
-                st.write(f"**Preço:** {products[1]}")
-                st.write(f"**Descrição:** {products[3]}")
+                st.markdown(f"**Name:** {products[2]}")
+                st.write(f"**Price:** {products[1]}")
+                st.write(f"**Description:** {products[3]}")
                 if products[4]:
-                    html_img = f'<img src="{products[4]}" alt="Imagem do Produto" width="200" height="200"/>'
+                    html_img = f'<img src="{products[4]}" alt="Image Product" width="200" height="200"/>'
                     st.markdown(html_img, unsafe_allow_html=True)
                 st.write("---")
 
     else:
-        st.info("Nenhum produto cadastrado.")
+        st.info("No products registered.")
 
-if st.button('Cadastrar Produto'):
+if st.button('Register Product'):
     insert_product(product_name, product_price, product_description, product_image)
-    return_message = 'Produto salvo com Sucesso'
+    return_message = 'Product registered successfully!'
     list_products_screen()
 
-st.header('Produtos Cadastrados')
-if st.button('Listar Produtos'):
+st.header('Products List')
+if st.button('List Products'):
     list_products_screen()
-    st.success('Produtos listados com Sucesso')
+    st.success('Products listed successfully!')
 
