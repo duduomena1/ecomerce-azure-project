@@ -8,7 +8,7 @@ def welcome():
         - Store product data securely in Azure Blob Storage and SQL Database.
         - View and manage your product catalog.
     """)
-    st.success("Get started by navigating to the 'Cadastro de Produtos' page!")
+    st.success("Get started by navigating to the 'Register' page!")
 
 
 welcome()
