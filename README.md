@@ -70,7 +70,7 @@ ecomerce-azure-project/
 ├── welcome_page.py        # Welcome page code
 ├── register.py            # Product registration page
 ├── main_page.py           # Main page code
-└── order_page.py          # Order page code
+└── users.py               # Users registration page
 
 ```
 
