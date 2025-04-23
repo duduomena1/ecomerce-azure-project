@@ -37,7 +37,7 @@ def insert_product(product_name, product_price, product_description, product_ima
         image_url = upload_blob(product_image)
         conn = pymssql.connect(server=sqlServer, user=sqlUsername, password=sqlPassword, database=sqlDatabase)
         cursor = conn.cursor()
-        insert_sql = f"INSERT INTO Produtos (preco, nome, descricao, imagem_url) VALUES ('{product_price}', '{product_name}', '{product_description}', '{image_url}')"
+        insert_sql = f"INSERT INTO Produtos (price, name, description, image_url) VALUES ('{product_price}', '{product_name}', '{product_description}', '{image_url}')"
         cursor.execute(insert_sql)
         conn.commit()
         conn.close()
