@@ -12,3 +12,32 @@ CREATE TABLE Users (
     mail NVARCHAR(255) NOT NULL UNIQUE,
     phone NVARCHAR(20),
 );
+
+az login
+
+az account list --output table
+
+az extension add --name containerapp --upgrade
+
+az provider register --namespace Microsoft.App
+
+az provider register --namespace Microsoft.OperationalInsights
+
+myRG=erodriguescontainerapps
+myLocation=eastus
+myAppContainerEnv=erodriguescontainerapps-env-001
+
+az group create --name $myRG --location $myLocation
+
+az containerapp env create --name $myAppContainerEnv \
+    --resource-group $myRG \
+    --location $myLocation \
+
+
+az containerapp create --name erodriguescontainerapps \
+    --resource-group $myRG \
+    --environment $myAppContainerEnv \
+    --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
+    --target-port 80 \
+    --ingress external \
+    --query properties.configuration.ingress.fqdn
