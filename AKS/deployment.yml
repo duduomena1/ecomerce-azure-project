@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecomerce-azure-project
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ecomerce-azure-project
+  template:
+    metadata:
+      labels:
+        app: ecomerce-azure-project
+    spec:
+      containers:
+      - name: ecomerce-azure-project
+        image: acsakslab002.azurecr.io/bootcamp:latest
+        ports:
+        - containerPort: 80
+
