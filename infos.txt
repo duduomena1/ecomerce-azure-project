@@ -41,3 +41,9 @@ az containerapp create --name erodriguescontainerapps \
     --target-port 80 \
     --ingress external \
     --query properties.configuration.ingress.fqdn
+
+#container id = docker pull containerslabs003.azurecr.io/ecommerce:latest
+
+#user id = containerslabs003
+
+#password = "+RQhcgxIwLp7XLQcbT7Ly7XQmrvv4hW3bkMCGE1AbR+ACRANI9zP"
